@@ -28,7 +28,9 @@ public class Board {
     public EmptyZone createEmptyZone(int x, int y, int pValue) {
         assert x < aWidth && y < aHeight;
         if (!ALL_COORDINATES.containsKey(x)) {
-            ALL_COORDINATES.put(x, new HashMap<Integer, Zone>(y, new EmptyZone(pValue)));
+            Map<Integer, Zone> map = new HashMap<>();
+            map.put(y, new EmptyZone(pValue));
+            ALL_COORDINATES.put(x, map);
         }
         else if (!ALL_COORDINATES.get(x).containsKey(y)) {
             ALL_COORDINATES.get(x).put(y, new EmptyZone(pValue));
@@ -38,11 +40,18 @@ public class Board {
     
     /**
      * createEmptyZone overload with String pValue
+     * @param x coordinate
+     * @param y coordinate
+     * @param pValue Value of the EmptyZone
+     * @return The reference to the created EmptyZone
+     * @pre Coordinates are inside the board
      */
     public EmptyZone createEmptyZone(int x, int y, String pValue) {
         assert x < aWidth && y < aHeight;
         if (!ALL_COORDINATES.containsKey(x)) {
-            ALL_COORDINATES.put(x, new HashMap<Integer, Zone>(y, new EmptyZone(pValue)));
+            Map<Integer, Zone> map = new HashMap<>();
+            map.put(y, new EmptyZone(pValue));
+            ALL_COORDINATES.put(x, map);
         }
         else if (!ALL_COORDINATES.get(x).containsKey(y)) {
             ALL_COORDINATES.get(x).put(y, new EmptyZone(pValue));
@@ -59,7 +68,9 @@ public class Board {
     public MineZone createMineZone(int x, int y) {
         assert x < aWidth && y < aHeight;
         if (!ALL_COORDINATES.containsKey(x)) {
-            ALL_COORDINATES.put(x, new HashMap<Integer, Zone>(y, new MineZone()));
+            Map<Integer, Zone> map = new HashMap<>();
+            map.put(y, new MineZone());
+            ALL_COORDINATES.put(x, map);
         }
         else if (!ALL_COORDINATES.get(x).containsKey(y)) {
             ALL_COORDINATES.get(x).put(y, new MineZone());
