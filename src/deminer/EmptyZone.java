@@ -1,17 +1,28 @@
 package deminer;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
 
 /**
  * EmptyZone
  */
-public class EmptyZone extends Button implements Zone {
+public class EmptyZone extends ToggleButton implements Zone {
 
     private final String aValue;
     private boolean hidden = false;
     
     public EmptyZone(String pValue) {
         aValue = pValue;
+        
+//        this.setOnAction(new EventHandler<ActionEvent>() {
+//            
+//            @Override
+//            public void handle(ActionEvent event) {
+//                this.setText(aValue);
+//            }
+//        });
     }
     
     public EmptyZone(int pValue) {

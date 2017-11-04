@@ -1,7 +1,5 @@
 package deminer;
 
-import javafx.scene.control.Button;
-
 /**
  * Zone interface
  */
