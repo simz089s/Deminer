@@ -21,19 +21,50 @@ public class Board {
     /**
      * @param x coordinate
      * @param y coordinate
-     * @param pValue Value of the Zone
-     * @return The reference to the created Zone
+     * @param pValue Value of the EmptyZone
+     * @return The reference to the created EmptyZone
      * @pre Coordinates are inside the board
      */
-    public Zone createZone(int x, int y, int pValue) {
+    public EmptyZone createEmptyZone(int x, int y, int pValue) {
         assert x < aWidth && y < aHeight;
         if (!ALL_COORDINATES.containsKey(x)) {
-            ALL_COORDINATES.put(x, new HashMap<>(y, pValue));
+            ALL_COORDINATES.put(x, new HashMap<Integer, Zone>(y, new EmptyZone(pValue)));
         }
         else if (!ALL_COORDINATES.get(x).containsKey(y)) {
-            ALL_COORDINATES.get(x).put(y, pValue);
+            ALL_COORDINATES.get(x).put(y, new EmptyZone(pValue));
         }
-        return ALL_COORDINATES.get(x).get(y);
+        return (EmptyZone)ALL_COORDINATES.get(x).get(y);
+    }
+    
+    /**
+     * createEmptyZone overload with String pValue
+     */
+    public EmptyZone createEmptyZone(int x, int y, String pValue) {
+        assert x < aWidth && y < aHeight;
+        if (!ALL_COORDINATES.containsKey(x)) {
+            ALL_COORDINATES.put(x, new HashMap<Integer, Zone>(y, new EmptyZone(pValue)));
+        }
+        else if (!ALL_COORDINATES.get(x).containsKey(y)) {
+            ALL_COORDINATES.get(x).put(y, new EmptyZone(pValue));
+        }
+        return (EmptyZone)ALL_COORDINATES.get(x).get(y);
+    }
+    
+    /**
+     * @param x coordinate
+     * @param y coordinate
+     * @return The reference to the created MineZone
+     * @pre Coordinates are inside the board
+     */
+    public MineZone createMineZone(int x, int y) {
+        assert x < aWidth && y < aHeight;
+        if (!ALL_COORDINATES.containsKey(x)) {
+            ALL_COORDINATES.put(x, new HashMap<Integer, Zone>(y, new MineZone()));
+        }
+        else if (!ALL_COORDINATES.get(x).containsKey(y)) {
+            ALL_COORDINATES.get(x).put(y, new MineZone());
+        }
+        return (MineZone)ALL_COORDINATES.get(x).get(y);
     }
 
 }

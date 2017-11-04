@@ -1,3 +1,5 @@
+package deminer;
+
 import deminer.Board;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

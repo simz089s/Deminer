@@ -5,26 +5,12 @@ import javafx.scene.control.Button;
 /**
  * Zone interface
  */
-public abstract class Zone extends Button {
+interface Zone {
     
-    private final String aValue;
-    @SuppressWarnings("FieldMayBeFinal")
-    private boolean aValueShown = false;
-
-    public Zone(String pValue) {
-        aValue = pValue;
-    }
+    public String getValue();
     
-    public String getValue() {
-        return aValue;
-    }
+    public boolean isHidden();
     
-    public boolean getShowValue() {
-        return aValueShown;
-    }
-    
-    public void setShowValue(boolean pValueShown) {
-        aValueShown = pValueShown;
-    }
+    public void setHidden(boolean pValueShown);
 
 }
