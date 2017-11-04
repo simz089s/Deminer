@@ -1,14 +1,30 @@
 package deminer;
 
+import javafx.scene.control.Button;
+
 /**
  * Zone interface
  */
-public abstract class Zone {
+public abstract class Zone extends Button {
     
-    private boolean aVisible = false;
+    private final String aValue;
+    @SuppressWarnings("FieldMayBeFinal")
+    private boolean aValueShown = false;
 
-    public boolean isVisible() {
-        return aVisible;
+    public Zone(String pValue) {
+        aValue = pValue;
+    }
+    
+    public String getValue() {
+        return aValue;
+    }
+    
+    public boolean getShowValue() {
+        return aValueShown;
+    }
+    
+    public void setShowValue(boolean pValueShown) {
+        aValueShown = pValueShown;
     }
 
 }
